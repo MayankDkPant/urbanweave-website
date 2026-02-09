@@ -329,3 +329,61 @@ footer {
 .contact-details {
     margin-bottom: 40px;
 }
+
+/* ========================= */
+/* RESPONSIVE DESIGN         */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+    .container {
+        padding: 60px 20px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+        line-height: 1.3;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .navbar {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .navbar nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .grid {
+        flex-direction: column;
+    }
+
+    .stats {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .architecture-layer {
+        width: 100%;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+        width: 100%;
+        text-align: center;
+    }
+}

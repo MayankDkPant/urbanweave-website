@@ -318,6 +318,7 @@ footer {
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
+    margin-top: 30px;   /* add this */
 }
 
 .secondary-btn:hover {

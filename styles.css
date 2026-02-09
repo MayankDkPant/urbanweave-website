@@ -387,3 +387,49 @@ footer {
         text-align: center;
     }
 }
+
+/* ========================= */
+/* MOBILE NAVIGATION         */
+/* ========================= */
+
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #e2e8f0;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .navbar nav {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: #0f172a;
+        width: 200px;
+        flex-direction: column;
+        padding: 20px;
+        display: none;
+        border: 1px solid rgba(255,255,255,0.05);
+        border-radius: 8px;
+    }
+
+    .navbar nav a {
+        margin: 10px 0;
+    }
+
+    .navbar nav.active {
+        display: flex;
+    }
+}
+

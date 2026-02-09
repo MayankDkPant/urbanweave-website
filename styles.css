@@ -75,6 +75,7 @@ h1,h2,h3,h4 { font-weight:600; }
     color:#e2e8f0;
     text-decoration:none;
     border-radius:6px;
+    transition:0.3s;
 }
 
 .section.light {
@@ -311,4 +312,15 @@ footer {
     letter-spacing: 1px;
     color: #e2e8f0;
     text-decoration: none;
+}
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.secondary-btn:hover {
+    background: rgba(255,255,255,0.05);
+    border-color:#2563eb;
 }

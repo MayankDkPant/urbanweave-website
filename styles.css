@@ -325,3 +325,7 @@ footer {
     background: rgba(255,255,255,0.05);
     border-color:#2563eb;
 }
+
+.contact-details {
+    margin-bottom: 40px;
+}

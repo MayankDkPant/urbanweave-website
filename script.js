@@ -42,7 +42,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 targetSection.scrollIntoView({
                     behavior: "smooth"
                 });
-(continued)
             }
         });
     });
@@ -119,18 +118,32 @@ document.addEventListener("DOMContentLoaded", function () {
     const openVideo = (videoId) => {
         if (!videoPanel || !videoEmbed || !videoSection || !videoId) return;
         const embedUrl = `https://www.youtube.com/embed/${videoId}?rel=0&autoplay=1`;
+        
+        // Make section visible immediately
         videoSection.removeAttribute("hidden");
         videoSection.style.display = "block";
         videoSection.classList.add("is-open");
-        // Ensure visibility if section was previously hidden by the observer setup
+        
+        // Override any intersection observer styles
         videoSection.style.opacity = "1";
         videoSection.style.transform = "translateY(0)";
+        videoSection.style.transition = "none"; // Disable transition temporarily
+        
+        // Force a reflow to ensure styles are applied
+        void videoSection.offsetHeight;
+        
+        // Re-enable transitions
+        videoSection.style.transition = "";
+        
+        // Load the video
         videoEmbed.setAttribute("src", embedUrl);
         videoPanel.classList.add("is-open");
         videoPanel.setAttribute("aria-hidden", "false");
-        requestAnimationFrame(() => {
-            videoSection.scrollIntoView({ behavior: "smooth", block: "center" });
-        });
+        
+        // Scroll to video after a short delay to ensure everything is rendered
+        setTimeout(() => {
+            videoSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 100);
     };
 
     videoTriggers.forEach(trigger => {

@@ -113,12 +113,14 @@ document.addEventListener("DOMContentLoaded", function () {
         videoEmbed.setAttribute("src", "");
         videoSection.classList.remove("is-open");
         videoSection.setAttribute("hidden", "");
+        videoSection.style.display = "none";
     };
 
     const openVideo = (videoId) => {
         if (!videoPanel || !videoEmbed || !videoSection || !videoId) return;
         const embedUrl = `https://www.youtube.com/embed/${videoId}?rel=0&autoplay=1`;
         videoSection.removeAttribute("hidden");
+        videoSection.style.display = "block";
         videoSection.classList.add("is-open");
         // Ensure visibility if section was previously hidden by the observer setup
         videoSection.style.opacity = "1";
@@ -126,7 +128,9 @@ document.addEventListener("DOMContentLoaded", function () {
         videoEmbed.setAttribute("src", embedUrl);
         videoPanel.classList.add("is-open");
         videoPanel.setAttribute("aria-hidden", "false");
-        videoSection.scrollIntoView({ behavior: "smooth", block: "center" });
+        requestAnimationFrame(() => {
+            videoSection.scrollIntoView({ behavior: "smooth", block: "center" });
+        });
     };
 
     videoTriggers.forEach(trigger => {

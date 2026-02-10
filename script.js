@@ -107,15 +107,17 @@ document.addEventListener("DOMContentLoaded", function () {
     const videoClose = document.querySelector("[data-video-close]");
 
     const closeVideo = () => {
-        if (!videoPanel || !videoEmbed) return;
+        if (!videoPanel || !videoEmbed || !videoSection) return;
         videoPanel.classList.remove("is-open");
         videoPanel.setAttribute("aria-hidden", "true");
         videoEmbed.setAttribute("src", "");
+        videoSection.classList.remove("is-open");
     };
 
     const openVideo = (videoId) => {
         if (!videoPanel || !videoEmbed || !videoSection || !videoId) return;
         const embedUrl = `https://www.youtube.com/embed/${videoId}?rel=0&autoplay=1`;
+        videoSection.classList.add("is-open");
         videoEmbed.setAttribute("src", embedUrl);
         videoPanel.classList.add("is-open");
         videoPanel.setAttribute("aria-hidden", "false");

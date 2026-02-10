@@ -341,6 +341,11 @@ footer {
 .video-section {
     background: radial-gradient(circle at top, #111827, #0b1220 70%);
     position: relative;
+    display: none;
+}
+
+.video-section.is-open {
+    display: block;
 }
 
 .video-header {

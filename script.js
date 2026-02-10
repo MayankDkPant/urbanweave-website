@@ -96,6 +96,50 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.classList.add("loaded");
     });
 
+    // ===============================
+    // INLINE VIDEO TOGGLE
+    // ===============================
+
+    const videoTriggers = document.querySelectorAll("[data-video-trigger]");
+    const videoPanel = document.querySelector("[data-video-panel]");
+    const videoEmbed = document.querySelector("[data-video-embed]");
+    const videoSection = document.getElementById("platform-vision");
+    const videoClose = document.querySelector("[data-video-close]");
+
+    const closeVideo = () => {
+        if (!videoPanel || !videoEmbed) return;
+        videoPanel.classList.remove("is-open");
+        videoPanel.setAttribute("aria-hidden", "true");
+        videoEmbed.setAttribute("src", "");
+    };
+
+    const openVideo = (videoId) => {
+        if (!videoPanel || !videoEmbed || !videoSection || !videoId) return;
+        const embedUrl = `https://www.youtube.com/embed/${videoId}?rel=0&autoplay=1`;
+        videoEmbed.setAttribute("src", embedUrl);
+        videoPanel.classList.add("is-open");
+        videoPanel.setAttribute("aria-hidden", "false");
+        videoSection.scrollIntoView({ behavior: "smooth", block: "center" });
+    };
+
+    videoTriggers.forEach(trigger => {
+        trigger.addEventListener("click", (e) => {
+            e.preventDefault();
+            const videoId = trigger.getAttribute("data-video-id");
+            openVideo(videoId);
+        });
+    });
+
+    if (videoClose) {
+        videoClose.addEventListener("click", closeVideo);
+    }
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+            closeVideo();
+        }
+    });
+
 });
 
 

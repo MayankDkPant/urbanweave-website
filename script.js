@@ -120,6 +120,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const embedUrl = `https://www.youtube.com/embed/${videoId}?rel=0&autoplay=1`;
         videoSection.removeAttribute("hidden");
         videoSection.classList.add("is-open");
+        // Ensure visibility if section was previously hidden by the observer setup
+        videoSection.style.opacity = "1";
+        videoSection.style.transform = "translateY(0)";
         videoEmbed.setAttribute("src", embedUrl);
         videoPanel.classList.add("is-open");
         videoPanel.setAttribute("aria-hidden", "false");

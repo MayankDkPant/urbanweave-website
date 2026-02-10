@@ -290,6 +290,10 @@ footer {
     font-size: 14px;
 }
 
+.contact-email {
+    margin-bottom: 18px;
+}
+
 .contact-email a {
     color: #60a5fa;
     text-decoration: none;
@@ -476,5 +480,4 @@ footer {
         align-items: center;
     }
 }
-
 

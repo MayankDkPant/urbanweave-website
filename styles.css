@@ -344,6 +344,10 @@ footer {
     display: none;
 }
 
+.video-section[hidden] {
+    display: none !important;
+}
+
 .video-section.is-open {
     display: block;
 }

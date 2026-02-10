@@ -112,11 +112,13 @@ document.addEventListener("DOMContentLoaded", function () {
         videoPanel.setAttribute("aria-hidden", "true");
         videoEmbed.setAttribute("src", "");
         videoSection.classList.remove("is-open");
+        videoSection.setAttribute("hidden", "");
     };
 
     const openVideo = (videoId) => {
         if (!videoPanel || !videoEmbed || !videoSection || !videoId) return;
         const embedUrl = `https://www.youtube.com/embed/${videoId}?rel=0&autoplay=1`;
+        videoSection.removeAttribute("hidden");
         videoSection.classList.add("is-open");
         videoEmbed.setAttribute("src", embedUrl);
         videoPanel.classList.add("is-open");
